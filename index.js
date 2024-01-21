@@ -4,18 +4,13 @@ import dotenv from "dotenv";
 import './database/connectdb.js'
 import parqueRoutes from "./routes/parque.route.js ";
 
-
 dotenv.config();
 
 const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 
-//app.get("/", (req, res) => {
-//  res.send("Api Parqueadero");
-//});
-
-app.use("/", parqueRoutes);
+app.use("/parque", parqueRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
